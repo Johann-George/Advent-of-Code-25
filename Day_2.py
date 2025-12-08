@@ -8,9 +8,12 @@ def add_invalid_ids():
                 for i in range(int(nos[0]), int(nos[1])+1):
                     num = len(str(i))
                     if num % 2 == 0:
-                        num = num / 2
-                        if (i % (10 * num) == i // (10 * num)):
-                            sum += i
+                        while num != 0:
+                            string = str(i)[:num]
+                            num = num // 2
+                            if (string[:num] == string[num:]):
+                                sum += i
+                                break
                     else:
                         continue
     return sum
