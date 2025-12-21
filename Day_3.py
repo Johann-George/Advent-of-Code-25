@@ -1,24 +1,18 @@
-def day_3_part_1():
+def day_3_part_1_():
     total_joltage = 0
     with open("Day_3_input.txt", "r") as file:
         for line in file:
-            print(line)
-            max_val = -1
-            max_val2 = -1
-            i = 0
-            while line[i] != '\n':
-                num = int(line[i])
-                if(num > max_val2 or num > max_val):
-                    if max_val > max_val2:
-                        max_val2 = num
-                    else:
-                        max_val = max_val2
-                        max_val2 = num
-                i += 1
-            print("max_val=", max_val, "max_val2=", max_val2)
-            total_joltage += max_val*10 + max_val2
+            max_joltage = 0
+            for i in range(0, len(line)-2):
+                for j in range(i+1, len(line)-1):
+                    num = int(line[i]) * 10 + int(line[j])
+                    if (num > max_joltage):
+                        max_joltage = num
+            total_joltage += max_joltage
+
     return total_joltage
 
-print(day_3_part_1())
+
+print(day_3_part_1_())
 
 
